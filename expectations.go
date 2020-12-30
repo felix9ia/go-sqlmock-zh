@@ -123,6 +123,9 @@ func (e *ExpectedRollback) String() string {
 // ExpectedQuery is used to manage *sql.DB.Query, *dql.DB.QueryRow, *sql.Tx.Query,
 // *sql.Tx.QueryRow, *sql.Stmt.Query or *sql.Stmt.QueryRow expectations.
 // Returned by *Sqlmock.ExpectQuery.
+// @translation-zh
+// ExpectedQuery 是用于管理  *sql.DB.Query, *dql.DB.QueryRow, *sql.Tx.Query,
+// *sql.Tx.QueryRow, *sql.Stmt.Query 或 *sql.Stmt.QueryRow 的预期。
 type ExpectedQuery struct {
 	queryBasedExpectation
 	rows             driver.Rows
@@ -134,18 +137,27 @@ type ExpectedQuery struct {
 // WithArgs will match given expected args to actual database query arguments.
 // if at least one argument does not match, it will return an error. For specific
 // arguments an sqlmock.Argument interface can be used to match an argument.
+// @translation-zh
+//  WithArgs 将会匹配本该作为真实数据库查询参数当做预期的参数。
+// 一旦有一个参数没有匹配，它将返回一个错误。
+//  对于特性的参数，可以使用 sqlmock.Argument 接口来匹配参数
 func (e *ExpectedQuery) WithArgs(args ...driver.Value) *ExpectedQuery {
 	e.args = args
 	return e
 }
 
 // RowsWillBeClosed expects this query rows to be closed.
+// @translation-zh
+// RowsWillBeClosed 希望这次查询是被关闭的
 func (e *ExpectedQuery) RowsWillBeClosed() *ExpectedQuery {
 	e.rowsMustBeClosed = true
 	return e
 }
 
 // WillReturnError allows to set an error for expected database query
+// @translation-zh
+// WillReturnError 允许在预期查询中，设置一个错误
+
 func (e *ExpectedQuery) WillReturnError(err error) *ExpectedQuery {
 	e.err = err
 	return e

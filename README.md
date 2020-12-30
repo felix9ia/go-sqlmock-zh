@@ -5,6 +5,8 @@
 
 # Sql driver mock for Golang
 
+English | [简体中文](./README-zh_CN.md)
+
 **sqlmock** is a mock library implementing [sql/driver](https://godoc.org/database/sql/driver). Which has one and only
 purpose - to simulate any **sql** driver behavior in tests, without needing a real database connection. It helps to
 maintain correct **TDD** workflow.
